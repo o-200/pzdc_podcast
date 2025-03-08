@@ -1,5 +1,10 @@
 Capybara.server = :puma, { Silent: true }
 
+# Find Docker IP address
+Capybara.server_host = '0.0.0.0'
+Capybara.server_port = '43447'
+Capybara.app_host    = "http://0.0.0.0:43447"
+
 Capybara.register_driver :chrome_headless do |app|
   options = Selenium::WebDriver::Chrome::Options.new
 

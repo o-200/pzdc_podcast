@@ -1,0 +1,25 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    # command: bundle exec rails server -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+      - "43447:43447" # Capidara port
+    environment:
+      - RAILS_ENV=development
+      # - SELENIUM_REMOTE_HOST=selenium
+
+
+  # chrome:
+  #   image: selenium/standalone-chrome
+
+    # image: selenium/standalone-chrome-debug
+    # ports:
+    #   - "4444:4444"
+    #   - "5900:5900"
+    # depends_on:
+    #   - web
